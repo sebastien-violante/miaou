@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Chat perdu{% endblock %}
+
+{% block body %}
+
+<div class="example-wrapper">
+    <h1>MIA...OU ? </h1><hr>
+        
+    <h2>Bienvenue dans la Cat Patrouille !</h2>
+    <br>
+    <p>Indiquez dans quelle commune vous cherchez un chat perdu...</p>
+</div>
+<form action="{{ path('search') }}" method="post" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer ce commentaire ?">
+        <div class="mb-3">
+            <label for="commune" class="form-label">Commune :</label>
+            <input type="text" class="form-control" id="commune" name="commune">
+        </div>
+        <button type="submit" class="btn btn-outline-success rounded-pill">Validez...</button>
+    </form>
+
+{% endblock %}

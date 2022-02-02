@@ -1,0 +1,38 @@
+.home {
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    
+    img {
+        width: 100%;
+        border-radius: 2em;
+        border: 5px solid white;
+        height: 250px;
+        margin-bottom: 1em;
+        object-fit: cover;
+    }
+    .image, .buttons {
+        width: 390px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+
+    .btn {
+       height: 50px;
+       width: 200px; 
+       margin: 0 auto; 
+       display: block;
+    }
+
+    .displaycats {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-around;
+    }
+}

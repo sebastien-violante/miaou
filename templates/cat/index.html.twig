@@ -1,0 +1,68 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mes chats{% endblock %}
+
+{% block body %}
+<section>
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+    <h1>MIA...OU ? </h1><hr>
+    {% if (app.user) %}
+    <h2>Bonjour {{ app.user.pseudo }}</h2><br>
+    {% endif %}
+    <section class="home">
+    <div class="image">
+        <img src="{{ asset('build/images/cathome.jpg') }}" alt="cat home">
+    </div>
+    <div class="buttons">
+        {% if (app.user is empty) %}
+            <a href="{{ path('login') }}"><button type="button" class="btn btn-danger">Se connecter</button></a><br>
+            {# <button type="button" class="btn btn-warning" onclick="return confirm('return confirm('Attention, vous vous apprétez à signaler un chat. Tout signalement abusif peut mener à une plainte à votre encontre');">Signaler</button><br> #}
+        {% else %}
+            <a href="{{ path('app_logout') }}"><button type="button" class="btn btn-primary">Se déconnecter</button><br>
+        {% endif %}
+            
+        {% if (app.user is empty) %}
+            <a href="{{ path('registration') }}">Pas encore de compte ? Cliquez ici ...</a>
+         {% endif %}
+    </div>
+    <hr>
+    {% if (app.user is not empty) %}
+    <div class="dashboard">
+        <a href="{{ path('catregistration') }}"><button type="button" class="btn btn-success">Enregistrer un nouveau chat</button></a><br>
+        <div class="displaycats">
+        {% if (chats is not empty) %}
+            {% for chat in chats %}
+            <div class="card bg-light mb-3" style="max-width: 20rem;">
+                <div class="card-header">{{ chat.nom }}
+                {% if chat.islost %}
+                <span> PERDU</span>
+                 {% endif %}
+                </div>
+                <div class="card-body">
+                    <p class="card-text">Race : {{ chat.race }}</p>
+                    <p class="card-text">Signe : {{ chat.signe }}</p>
+                    {% if chat.islost %}
+                    <a href="{{ path("foundbyid", {"id": chat.id }) }}"><button type="button" class="btn btn-outline-success">Retrouvé ?</button></a>
+                    <a href="{{ path("displayplot", {"id": chat.id }) }}"><button type="button" class="btn btn-outline-info">Localiser</button></a>
+                    {% else %}
+                    <a href="{{ path("lostbyid", {"id": chat.id }) }}"><button type="button" class="btn btn-outline-danger">Perdu ?</button></a>
+                    {% endif %}
+                </div>
+            </div>
+            
+            {% endfor %}
+        {% endif %}
+
+        </div>
+    </div>
+{% endif %}
+    
+
+</div>
+</section>
+{% endblock %}

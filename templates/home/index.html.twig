@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello CatController!{% endblock %}
+
+{% block body %}
+<section class="homepage">
+    <h1>MIA...OU ? </h1><hr>
+    <h2>Bonjour 
+    {% if (app.user) %}
+    {{ app.user.pseudo }}</h2>
+    {% endif %}</h2><br>
+   
+    <div class="home">
+        <div class="image">
+            <img src="{{ asset('build/images/cathome.jpg') }}" alt="cat home">
+        </div>
+    <div class="buttons">
+        {% if (app.user is empty) %}
+        <a href="{{ path('login') }}"><button type="button" class="btn btn-success">Se connecter</button></a><br>
+        <a href="{{ path('search') }}"><button type="button" class="btn btn-warning" onclick="return confirm('Attention, vous vous apprétez à signaler un chat. Tout signalement abusif peut mener à une plainte à votre encontre');">Signaler</button><br></a>
+        {% else %}
+        <a href="{{ path('app_logout') }}"><button type="button" class="btn btn-primary">Se déconnecter</button><br>
+        <a href="{{ path('cat') }}"><button type="button" class="btn btn-info">Mes chats</button><br>
+        {% endif %}
+        {# <a href="{{ path('search') }}"><button type="button" class="btn btn-warning" onclick="return confirm('Attention, vous vous apprétez à signaler un chat. Tout signalement abusif peut mener à une plainte à votre encontre');">Signaler</button><br></a> #}
+        {% if (app.user is empty) %}
+        <a href="{{ path('registration') }}">Pas encore de compte ? Cliquez ici ...</a>
+         {% endif %}
+    </div>
+</section>
+{% endblock %}

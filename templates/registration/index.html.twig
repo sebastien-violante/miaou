@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello RegistrationController!{% endblock %}
+
+{% block body %}
+<section class="register">
+<h1>Inscription</h1>
+    {{ form_start(form) }}
+       
+        {# {{ form_row(form.pseudo, {
+            label: 'Pseudo'
+        }) }}  #}
+        {{ form_label(form.pseudo, 'Pseudo', {'pseudo': {'class': 'form-label'}}) }}
+        <br>
+        {{ form_widget(form.pseudo, {'pseudo': {'class': 'form-control'}}) }}
+        <br>  
+        {{ form_label(form.email, 'Email', {'email': {'class': 'form-label'}}) }}
+        <br>
+        {{ form_widget(form.email, {'email': {'class': 'form-control'}}) }}     
+        <br>
+        {{ form_label(form.plainPassword, 'Mot de passe', {'password': {'class': 'form-label'}}) }}
+        <br>
+        {{ form_widget(form.plainPassword, {'password': {'class': 'form-control'}}) }}
+        <br>
+        {{ form_label(form.agreeTerms, 'J accepte les CGU', {'agreeTerms': {'class': 'custom-control-label'}}) }}
+        <br>
+        {{ form_widget(form.agreeTerms, {'agreeTerms': {'class': 'form-check-input'}}) }}
+        <br><br>
+        <input type="submit"  value="Enregistrer">
+    {{ form_end(form) }}
+</section>
+{% endblock %}
+

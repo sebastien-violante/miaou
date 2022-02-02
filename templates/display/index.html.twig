@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Chat perdu{% endblock %}
+
+{% block body %}
+<section class="search">
+<div class="example-wrapper">
+  <h1>MIA...OU ? </h1>
+  <br>
+  <h2>Bienvenue sur l'espace "Cat Patrouille".</h2>
+  <hr>
+  <div class="image">
+  <img src="{{ asset('build/images/catpaw.jpg') }}" alt="image de chat qui montre son nez">
+  </div>
+  <br>
+  {% if chats %}
+    <h2>Voici les chats perdus à {{ commune }}</h2>
+    <br>
+    {% for chat in chats %}
+      {% if chat.islost %}
+        <div class="card mb-3">
+          <h3 class="card-header">{{ chat.nom }}</h3>
+          <rect width="100%" height="100%" fill="#868e96"></rect>
+          <img class="catpicture" src="/upload/avatars/{{ chat.photo }}" class="card-img-top" alt="pas de photo pour {{ chat.nom }}">
+          <div class="card-body">
+            <p class="card-text">Quelques informations supplémentaires...</p>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Race : {{ chat.race }}</li>
+            <li class="list-group-item">Signes : {{ chat.signe }}</li>
+          </ul>
+          <div class="card-body">
+            <a href="{{ path("confirmplot", {"chat_id": chat.id}) }}"><button type="button" class="btn btn-outline-info">Plotter</button></a>
+          </div>
+          <div class="card-footer text-muted">
+          2 days ago
+          </div>
+        </div>
+      {% endif %}
+    {% endfor %}
+  {% else %}
+    <h2>Ouf ! Aucun chat n'est déclaré perdu sur la commune de {{ commune }}</h2>
+  {% endif %}
+</div>
+</section>
+{% endblock %}

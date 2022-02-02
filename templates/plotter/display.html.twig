@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block body %}
+<h1>MIA...OU ? </h1><hr>
+<h2>Tableau de bord</h2>
+<br>
+<h3>Voici le recapitulatif des plottages concernant {{ chat.nom }}</h3>
+<h3>à la date du : {{ displaydate }}</h3>
+<br>
+<table class="table table-hover">
+    <thead>
+        <tr>
+        <th scope="col">Date</th>
+        <th scope="col">Longitude</th>
+        <th scope="col">Latitude</th>
+        <th scope="col">x</th>
+        </tr>
+    </thead>
+    {% for plot in plots %}
+    <tbody>
+        <tr class="table-warning">
+        <th scope="row">{{ plot.date|date('Y-m-d') }}</th>
+        <td>{{ plot.coordx }}</td>
+        <td>{{ plot.coordy }}</td>
+        <td>{{ plot.contact }}</td>
+        </tr>
+    </tbody>
+    {% endfor %}
+</table>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+{% block title %}Chat perdu{% endblock %}
+{% block body %}
+<section>
+<div class="example-wrapper">
+    <h1>MIA OU ? </h1><hr>
+    <h2>Cher {{ app.user.pseudo }}</h2>
+    <p>Nous sommes heureux que vous ayez retrouvé {{chat.nom}} !</p>
+</div>
+<a href="{{ path('cat') }}"><button type="button" class="btn btn-primary">Revenir à l'accueil</button></a>
+</section>
+{% endblock %}

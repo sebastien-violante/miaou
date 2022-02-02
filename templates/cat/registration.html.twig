@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Enregistrement{% endblock %}
+
+{% block body %}
+<h1>MIA OU ? </h1><br>
+<h2>Enregistrez votre chat. Vous pourrez ainsi le déclarer perdu et le signaler auprès des "Cat Patrouilles !" </h2><hr>
+
+{{ form_start(form) }}
+    <div class="comment_form">
+        <p>
+            {{ form_label(form.nom, 'nom :', {'label_attr': {'class': 'form-label'}}) }}
+            {{ form_widget(form.nom, {'attr': {'class': 'form-control'}}) }}
+        </p>
+        <p>
+            {{ form_label(form.race, 'race :', {'label_attr': {'class': 'form-label'}}) }}
+            {{ form_widget(form.race, {'attr': {'class': 'form-control'}}) }}
+        </p>
+        <p>
+            {{ form_label(form.photo, 'photo :', {'label_attr': {'class': 'form-label'}}) }}
+            {{ form_widget(form.photo, {'attr': {'class': 'form-control'}}) }}
+        </p>
+        <p>
+            {{ form_label(form.signe, 'signe :', {'label_attr': {'class': 'form-label'}}) }}
+            {{ form_widget(form.signe, {'attr': {'class': 'form-control'}}) }}
+        </p>
+        <p>
+            {{ form_label(form.commune, 'commune :', {'label_attr': {'class': 'form-label'}}) }}
+            {{ form_widget(form.commune, {'attr': {'class': 'form-control'}}) }}
+        </p>
+    </div>
+    
+    <button type="submit" class="btn btn-outline-success">Enregistrer</button>
+{{ form_end(form) }}
+{% endblock %}
+

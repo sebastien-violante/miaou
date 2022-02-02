@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Commune{% endblock %}
+
+{% block body %}
+    <h1>Commune</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ commune.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ commune.nom }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('commune_index') }}">back to list</a>
+
+    <a href="{{ path('commune_edit', {'id': commune.id}) }}">edit</a>
+
+    {{ include('commune/_delete_form.html.twig') }}
+{% endblock %}
