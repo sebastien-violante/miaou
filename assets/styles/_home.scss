@@ -1,11 +1,14 @@
-.home {
+.homepage {
 
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-around;
-    
+    .home {
+
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-around;
+    }
+
     img {
         width: 100%;
         border-radius: 2em;
@@ -34,5 +37,9 @@
         flex-wrap: wrap;
         align-items: center;
         justify-content: space-around;
+    }
+    
+    p {
+        text-align: center;
     }
 }

@@ -13,10 +13,9 @@
             {{ encore_entry_script_tags('app') }}
         {% endblock %}
     </head>
+        {% include "_header.html.twig" %}
     <body>
         {% block body %}{% endblock %}
     </body>
-    <footer>
-        {% include "_footer.html.twig" %}
-    </footer>
+    
 </html>

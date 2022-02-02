@@ -1,10 +1,10 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello CatController!{% endblock %}
+{% block title %}Miaou Accueil{% endblock %}
 
 {% block body %}
 <section class="homepage">
-    <h1>MIA...OU ? </h1><hr>
+    
     <h2>Bonjour 
     {% if (app.user) %}
     {{ app.user.pseudo }}</h2>
@@ -24,7 +24,7 @@
         {% endif %}
         {# <a href="{{ path('search') }}"><button type="button" class="btn btn-warning" onclick="return confirm('Attention, vous vous apprétez à signaler un chat. Tout signalement abusif peut mener à une plainte à votre encontre');">Signaler</button><br></a> #}
         {% if (app.user is empty) %}
-        <a href="{{ path('registration') }}">Pas encore de compte ? Cliquez ici ...</a>
+        <a href="{{ path('registration') }}"><p>Pas encore de compte ? Cliquez ici ...</p></a>
          {% endif %}
     </div>
 </section>

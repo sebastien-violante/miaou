@@ -1,0 +1,45 @@
+.displaycats {
+
+    .card-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    img {
+        width: 100%;
+        border-radius: 2em;
+        border: 5px solid white;
+        height: 250px;
+        margin-bottom: 1em;
+        object-fit: cover;
+    }
+
+    .buttons {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content:space-evenly;
+    }
+
+    .btn {
+        width: 200px;
+        margin: 0.2 auto;
+    }
+
+    .biodata {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .catpicture {
+        height: 100px;
+        width: 200px;
+        border-radius: 1em;
+        margin: 0 auto 5px auto;
+    }
+
+}

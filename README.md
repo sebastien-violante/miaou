@@ -82,12 +82,12 @@ To write...not ready yet !
 Check to improve :
 (- crud admin at least on commune et race)
 - user profil and granted
-- page 404
+(- page 404)
 - mailing avec variable d'environnement
 (- mailing after plotting)
 (- several pop-ups)
 - check all routes
-- modify css for connection
+- modify css for registration and crud
 - entity type for commune and race
 (- mauvais routage signaler en login)
 - checker bloc titles
