@@ -12,27 +12,18 @@
 <div class="example-wrapper">
     
     {% if (app.user) %}
-    <h2>Bonjour {{ app.user.pseudo }}</h2><br>
+    <h1>Bonjour {{ app.user.pseudo }}</h1><br>
     {% endif %}
     <section class="home">
     <div class="image">
         <img src="{{ asset('build/images/cathome.jpg') }}" alt="cat home">
     </div>
     <div class="buttons">
-      {#   {% if (app.user is empty) %}
-            <a href="{{ path('login') }}"><button type="button" class="btn btn-danger">Se connecter</button></a><br> #}
-            {# <button type="button" class="btn btn-warning" onclick="return confirm('return confirm('Attention, vous vous apprétez à signaler un chat. Tout signalement abusif peut mener à une plainte à votre encontre');">Signaler</button><br> #}
-        {# {% else %} #}
-        <a href="{{ path('app_logout') }}"><button type="button" class="btn btn-primary">Se déconnecter</button><br>
-        {# {% endif %} #}
-            
-        {# {% if (app.user is empty) %}
-            <a href="{{ path('registration') }}">Pas encore de compte ? Cliquez ici ...</a>
-         {% endif %} #}
-        <a href="{{ path('catregistration') }}"><button type="button" class="btn btn-success">Enregistrer un nouveau chat</button></a><br>
+        <a href="{{ path('app_logout') }}"><button type="button" class="special btn btn-primary">Se déconnecter</button><br>
+        
+        <a href="{{ path('catregistration') }}"><button type="button" class="special btn btn-success">Enregistrer un nouveau chat</button></a><br>
     </div>
         
-    {# {% if (app.user is not empty) %} #}
     <div class="dashboard">
         
          <hr>
@@ -69,7 +60,7 @@
 
         </div>
     </div>
-{# {% endif %}     #}
+
 </div>
 </section>
 {% endblock %}

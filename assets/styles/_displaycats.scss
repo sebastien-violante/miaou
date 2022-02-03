@@ -1,5 +1,11 @@
 .displaycats {
 
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-around;
+    
     .card-header {
         display: flex;
         align-items: center;
@@ -27,6 +33,11 @@
         margin: 0.2 auto;
     }
 
+    .special {
+        width: 350px;
+        margin: 0.2 auto;
+    }
+
     .biodata {
         display: flex;
         flex-direction: row;
@@ -37,9 +48,14 @@
 
     .catpicture {
         height: 100px;
-        width: 200px;
+        width: 100%;
         border-radius: 1em;
         margin: 0 auto 5px auto;
+    }
+
+    .card-body {
+        height: 280px;
+        text-align: center;
     }
 
 }

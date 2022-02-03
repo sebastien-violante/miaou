@@ -43,6 +43,7 @@ security:
         - { path: ^/race, roles: ROLE_ADMIN }
         - { path: ^/user, roles: ROLE_ADMIN }
         - { path: ^/message, roles: ROLE_ADMIN }
+        - { path: ^/chat, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }
 
 when@test:
