@@ -6,20 +6,22 @@
 <section class="searchindex">
 <div class="example-wrapper">
    
-    <h2>Bienvenue dans la Cat Patrouille !</h2>
+    <h1>Bienvenue en mode</h1>
+    <h1>"Cat Patrouille" !</h1>
     <br>
-    <p>Indiquez dans quelle commune vous cherchez un chat perdu...</p>
+    <h2>Indiquez dans quelle commune vous cherchez un chat perdu...</h2>
+    <br>
 </div>
+<div class="contexte alert alert-dismissible alert-secondary">
+
 {{ form_start(form) }}
-   {#  {{ form_widget(form) }}       
-    <input type="submit"  value="Validez">
- #}
+  
 {{ form_label(form.commune, 'Commune', {'commune': {'class': 'form-label'}}) }}
 <br>
 {{ form_widget(form.commune, {'commune': {'class': 'form-control'}}) }}
 <br>
 <input type="submit"  value="Rechercher..." class="btn btn-warning">
-{# <a href="{{ path('search') }}"><button type="button" class="btn btn-warning" onclick="return confirm('Attention,');">Signaler</button><br></a> #}
 {{ form_end(form) }}
+</div>
 </section>
 {% endblock %}

@@ -6,39 +6,42 @@
 <section class="search">
 <div class="example-wrapper">
  
-  <h2>Bienvenue sur l'espace "Cat Patrouille".</h2>
-  <hr>
+  <h1>Bienvenue sur l'espace "Cat Patrouille".</h1>
+  <br>
   <div class="image">
-  <img src="{{ asset('build/images/catpaw.jpg') }}" alt="image de chat qui montre son nez">
+  <img class="top" src="{{ asset('build/images/catpaw.jpg') }}" alt="image de chat qui montre son nez">
   </div>
   <br>
   {% if chats %}
     <h2>Voici les chats perdus à {{ commune }}</h2>
     <br>
-    {% for chat in chats %}
-      {% if chat.islost %}
-        <div class="card mb-3">
-          <h3 class="card-header">{{ chat.nom }}</h3>
-          <rect width="100%" height="100%" fill="#868e96"></rect>
-          <img class="catpicture" src="/upload/avatars/{{ chat.photo }}" class="card-img-top" alt="pas de photo pour {{ chat.nom }}">
-          <div class="card-body">
-            <p class="card-text">Quelques informations supplémentaires...</p>
+    <div class="flex">
+      {% for chat in chats %}
+        {% if chat.islost %}
+          <div class="card mb-3">
+            <h3 class="card-header">{{ chat.nom }}</h3>
+            <rect width="100%" height="100%" fill="#868e96"></rect>
+            <img class="catpicture" src="/upload/avatars/{{ chat.photo }}" class="card-img-top" alt="pas de photo pour {{ chat.nom }}">
+            <div class="card-body">
+              <p class="card-text">Quelques informations supplémentaires...</p>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">Race : {{ chat.race }}</li>
+              <li class="list-group-item">Signes : {{ chat.signe }}</li>
+            </ul>
+            <div class="card-body">
+              <a href="{{ path("confirmplot", {"chat_id": chat.id}) }}"><button type="button" class="btn btn-info">Plotter</button></a>
+            </div>
           </div>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">Race : {{ chat.race }}</li>
-            <li class="list-group-item">Signes : {{ chat.signe }}</li>
-          </ul>
-          <div class="card-body">
-            <a href="{{ path("confirmplot", {"chat_id": chat.id}) }}"><button type="button" class="btn btn-outline-info">Plotter</button></a>
-          </div>
-          <div class="card-footer text-muted">
-          2 days ago
-          </div>
-        </div>
-      {% endif %}
-    {% endfor %}
+        {% endif %}
+      {% endfor %}
+    </div>
   {% else %}
     <h2>Ouf ! Aucun chat n'est déclaré perdu sur la commune de {{ commune }}</h2>
+    <br>
+    <div>
+    <a href="{{ path('search') }}"><button type="button" class="btn btn-primary">Nouvelle recherche ?</button></a><br>
+    </div>
   {% endif %}
 </div>
 </section>

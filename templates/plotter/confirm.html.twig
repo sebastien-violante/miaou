@@ -7,29 +7,31 @@
 
    
     <br>
-    <h2>Merci !</h2>
+    <h1>Merci !</h1>
     <br>
-    <p>Vous venez de signaler {{chat.nom}} aux coordonnées suivantes :</p>
+    <h2>Vous venez de signaler {{chat.nom}} aux coordonnées suivantes :</h2>
     <br>
     <ul>
         <li>Lattitude : {{ recherche.coordx }}</li>
         <li>Longitude : {{ recherche.coordy }}</li>
     </ul>
     <br>
-    <p>Si vous le souhaitez, vous pouvez ajouter vos coordonnées pour qu'il puisse vous contacter. Pensez à cliquer sur "valider" avant de partir !</p>
+    <h2>Si vous le souhaitez, vous pouvez ajouter vos coordonnées pour qu'il puisse vous contacter. Pensez à cliquer sur "valider" avant de partir !</h2>
     {{ form_start(form) }}
     {{ form_label(form.contact, 'Vos coordonnées :', {'label_attr': {'class': 'form-label'}}) }}
-    <div class="validate">
+    
         <div class="contact">
     {{ form_widget(form.contact, {'attr': {'class': 'form-control'}}) }}
         </div>
         <div class="button">     
-  <button class="btn btn-outline-info" type="submit" onclick="return confirm('Attention, les informations que vous fournissez seront transmises au propriétaire du chat');">Validez</button>
+  <button class="btn btn-info" type="submit" onclick="return confirm('Attention, les informations que vous fournissez seront transmises au propriétaire du chat');">Validez</button>
         </div>
-    </div>
+    
     {{ form_end(form) }}
     <br>
+    <div>
     <a href="{{ path('home') }}"><button type="button" class="btn btn-primary" onclick="return confirm('return confirm('Avant de partir, n'oubliez pas que vous pouvez transmettre vos coordonnées en les notant ci-dessus et en validant');">Retour à l'accueil</button></a><br>
+    </div>
 </section>
   
 {% endblock %}

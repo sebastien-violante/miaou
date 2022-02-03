@@ -3,9 +3,9 @@
 {% block title %}Enregistrement{% endblock %}
 
 {% block body %}
-
-<h2>Enregistrez votre chat. Vous pourrez ainsi le déclarer perdu et le signaler auprès des "Cat Patrouilles !" </h2><hr>
-
+<section class="catregister">
+<h1>Enregistrez votre chat. Vous pourrez ainsi le déclarer perdu et le signaler auprès des "Cat Patrouilles !" </h1>
+<br>
 {{ form_start(form) }}
     <div class="comment_form">
         <p>
@@ -29,8 +29,11 @@
             {{ form_widget(form.commune, {'attr': {'class': 'form-control'}}) }}
         </p>
     </div>
-    
-    <button type="submit" class="btn btn-outline-success">Enregistrer</button>
+    <br>
+    <div>
+    <button type="submit" class="btn btn-success">Enregistrer</button>
+    </div>
 {{ form_end(form) }}
+</section>
 {% endblock %}
 

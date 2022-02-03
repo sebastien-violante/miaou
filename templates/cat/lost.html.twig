@@ -3,15 +3,15 @@
 {% block title %}Chat perdu{% endblock %}
 
 {% block body %}
-
-<div class="example-wrapper">
-    
-    
-    <h2>Cher {{ app.user.pseudo }}</h2>
-    
-    <p>Nous avons bien pris en compte votre déclaration de perte de {{chat.nom}}.</p>
-    <p>Sachez qu'à partir de maintenant, toutes les "Cat Patrouilles" sont averties de sa disparition et pourrons vous avertir si elles l'aperçoivent dans {{chat.commune}} ou ses environs.</p>
-</div>
-
-<a href="{{ path('cat') }}"><button type="button" class="btn btn-primary">Revenir à l'accueil</button></a>
+<section class="lostandfound">  
+    <h1>Cher {{ app.user.pseudo }}</h1>
+    <br>
+    <h2>Nous avons bien pris en compte votre déclaration de perte de {{chat.nom}}.</h2>
+    <br>
+    <h2>Sachez qu'à partir de maintenant, toutes les "Cat Patrouilles" sont averties de sa disparition et pourrons vous avertir si elles l'aperçoivent dans {{chat.commune}} ou ses environs.</h2>
+    <br>
+    <div>
+    <a href="{{ path('cat') }}"><button type="button" class="btn btn-primary">Revenir à l'accueil</button></a>
+    <div>
+</section>
 {% endblock %}

@@ -1,21 +1,28 @@
 .confirm {
-
-    .validate {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-    }
+    width: 70%;
+    margin: 0 auto;
 
     .contact {
-        width : 65%;
+        width : 100%;
     }
 
     .button {
-        width : 35%;
+        width : 50%;
+        margin: 10px auto;
     }
 
     .btn {
-        width: 120px;
+        width: 200px;
+        margin: 0 auto;
+    }
+
+    div {
+        text-align: center;
+    }
+
+    ul {
+        margin-left: 50px;
+        font-size: 1.2em;
     }
 
 }

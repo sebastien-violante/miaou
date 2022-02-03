@@ -43,17 +43,7 @@ class CatController extends AbstractController
     ): Response
     {
         $chat = new Chat();
-        $form = $this->createForm(ChatType::class, $chat)
-        /*  ->add('commune', EntityType::class, [
-            'class' => Commune::class,
-            'choice_label' => 'nom',
-            'multiple' => false,
-            'expanded' => false,
-        ])
-        ->add('race', EntityType::class, [
-            'class' => Race::class,
-            'choice_label' => 'nom',
-        ]) */; 
+        $form = $this->createForm(ChatType::class, $chat);
         $form->handleRequest($request);
         $mail = $this->getUser()->getEmail();
         if ($form->isSubmitted() && $form->isValid()) {
@@ -98,7 +88,6 @@ class CatController extends AbstractController
         $chat = $chatRepository->findOneById($id);
         $chat->setIsLost(true);
         $chat->setDatelost(new \DateTime());
-        /* dd($chat->getDatelost()); */
         $em->persist($chat);
         $em->flush();
         return $this->render('cat/lost.html.twig', [

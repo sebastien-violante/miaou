@@ -1,11 +1,28 @@
 .search {
     
+    .flex {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-around;
+    }
+    
     img {
-        width: 350px;
+        width: 95%;
         border-radius: 1em;
+        margin: 0 auto;
     }
 
     .image {
         text-align: center;
+    }
+
+    .card-body {
+        text-align: center;
+    }
+
+    .top {
+        width: 380px;
     }
 }
