@@ -7,6 +7,8 @@ use App\Entity\Race;
 use App\Form\ChatType;
 use App\Entity\Commune;
 use App\Repository\ChatRepository;
+use App\Repository\MessageRepository;
+use App\Repository\RechercheRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -26,8 +28,6 @@ class CatController extends AbstractController
         
         $mail = $this->getUser()->getEmail();
         $chats = $chatRepository->findBy(['email' => $mail]);
-        /* dd($chats); */
-        /* dd($this->getUser()->getEmail()); */
         return $this->render('cat/index.html.twig', [
             'chats' => $chats,
         ]);
@@ -109,10 +109,18 @@ class CatController extends AbstractController
     /**
      * @Route("/found/{id}", name="foundbyid")
      */
-    public function isfound(ChatRepository $chatRepository, EntityManagerInterface $em, int $id): Response
-    {
+    public function isfound(
+        ChatRepository $chatRepository,
+        RechercheRepository $rechercheRepository,
+        EntityManagerInterface $em,
+        int $id
+    ): Response {
         $chat = $chatRepository->findOneById($id);
         $chat->setIsLost(false);
+        $messages = $rechercheRepository->findby(['chat' => $id]);
+        foreach($messages as $message){
+            $message->setChat(null);
+        }
         $em->persist($chat);
         $em->flush();
         return $this->render('cat/found.html.twig', [

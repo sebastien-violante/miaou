@@ -59,30 +59,6 @@ class PlotterController extends AbstractController
 
     }
     
-    /* /**
-     * @Route("/plotter/{chat_id}", name="plotter")
-     */
-    
-    /* public function plotter(int $chat_id, EntityManagerInterface $em, ChatRepository $chatRepository): Response
-    {
-        $chat = $chatRepository->findOneBy(['id' => $chat_id]);
-        $recherche = new Recherche();
-        $recherche->setDate(new \DateTime());
-        $date = $recherche->getDate()->format('Y-m-d H:i:s');
-        $recherche->setCoordx(rand(47390000, 47400000));
-        $recherche->setCoordy(rand(610000, 620000));
-        $recherche->setChat($chat);
-        $em->persist($recherche);
-        $em->flush();
-        $form = $this->createForm(ContactType::class, $recherche);
-        return $this->render('plotter/confirm.html.twig', [
-            'chat' => $chat, 
-            'date' => $date,
-            'recherche' => $recherche,
-            'form' => $form,
-        ]);
-    } */
-
     /**
      * @Route("/displayplot/{id}", name="displayplot")
      */
