@@ -3,7 +3,7 @@
 {% block title %}Chat perdu{% endblock %}
 
 {% block body %}
-
+<section class="searchindex">
 <div class="example-wrapper">
    
     <h2>Bienvenue dans la Cat Patrouille !</h2>
@@ -11,8 +11,15 @@
     <p>Indiquez dans quelle commune vous cherchez un chat perdu...</p>
 </div>
 {{ form_start(form) }}
-    {{ form_widget(form) }}       
+   {#  {{ form_widget(form) }}       
     <input type="submit"  value="Validez">
+ #}
+{{ form_label(form.commune, 'Commune', {'commune': {'class': 'form-label'}}) }}
+<br>
+{{ form_widget(form.commune, {'commune': {'class': 'form-control'}}) }}
+<br>
+<input type="submit"  value="Rechercher..." class="btn btn-warning">
+{# <a href="{{ path('search') }}"><button type="button" class="btn btn-warning" onclick="return confirm('Attention,');">Signaler</button><br></a> #}
 {{ form_end(form) }}
-
+</section>
 {% endblock %}

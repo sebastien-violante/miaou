@@ -93,3 +93,4 @@ Check to improve :
 - checker bloc titles
 - afficher plottage du plus récent au plus ancien
 - augmenter taille police
+- formulaire contact
