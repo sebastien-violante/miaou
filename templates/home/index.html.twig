@@ -4,10 +4,10 @@
 
 {% block body %}
 <section class="homepage">
-      <h2>Bonjour 
+      <h1>Bonjour 
     {% if (app.user) %}
-    {{ app.user.pseudo }}</h2>
-    {% endif %}</h2><br>
+    {{ app.user.pseudo }} 
+    {% endif %} et bienvenue sur Mia...ou ?</h1><br>
    
     <div class="home">
         <div class="image">
@@ -26,5 +26,10 @@
         <a href="{{ path('registration') }}"><p>Pas encore de compte ? Cliquez ici ...</p></a>
          {% endif %}
     </div>
+    {% if (app.user is empty) %}
+    <div class="contexte alert alert-dismissible alert-secondary">
+        <h2>Si vous venez de perdre votre chat, <b>pas de panique !</b> il vous suffit de vous enregistrer/connecter et de le signaler perdu. Une "Cat Patrouille" pourra le repérer et vous serez <b>averti en temps réel</b> de sa localisation...<h2>
+    </div>
+     {% endif %}
 </section>
 {% endblock %}

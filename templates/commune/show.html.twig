@@ -3,6 +3,7 @@
 {% block title %}Detail Commune{% endblock %}
 
 {% block body %}
+    <section class="crud">
     <h1>Détails de la commune</h1>
 
     <table class="table">
@@ -23,4 +24,5 @@
     <a href="{{ path('commune_edit', {'id': commune.id}) }}">edit</a>
 
     {{ include('commune/_delete_form.html.twig') }}
+    </section>
 {% endblock %}

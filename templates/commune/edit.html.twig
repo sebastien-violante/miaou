@@ -3,6 +3,7 @@
 {% block title %}Edition communes{% endblock %}
 
 {% block body %}
+    <section class="crud">
     <h1>Edition des Communes</h1>
 
     {{ include('commune/_form.html.twig', {'button_label': 'Update'}) }}
@@ -10,4 +11,5 @@
     <a href="{{ path('commune_index') }}">back to list</a>
 
     {{ include('commune/_delete_form.html.twig') }}
+    </section>
 {% endblock %}
