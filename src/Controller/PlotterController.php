@@ -42,7 +42,7 @@ class PlotterController extends AbstractController
         
         if ($chat->getEmail()) {
             $plotemail = (new Email())
-                ->from('miaou@gmail.com')
+                ->from($this->getParameter('mailer_from'))
                 ->to($chat->getEmail())
                 ->subject('Alerte signalement !')
                 ->html('<p>Bonjour, votre chat <b>'.$chat->getNom().'</b> vient d etre repéré ! Connectez-vous à Miaou et rendez-vous dans votre dashboard pour découvrir à quel endroit</p>');

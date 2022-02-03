@@ -35,11 +35,11 @@ class RegistrationController extends AbstractController
             $email = $user->getEmail();
             if (is_string($plainPassword) && null !== $email) {
                 $user->setPassword($userPasswordHasher->hashPassword($user, $plainPassword));
-                $user->setRoles(['ROLE_ADMIN']);
+                $user->setRoles(['ROLE_USER']);
                 $entityManager->persist($user);
                 $entityManager->flush();
                 $sendemail = (new Email())
-                    ->from('miaou@gmail.com')
+                    ->from($this->getParameter('mailer_from'))
                     ->to($email)
                     ->subject('Bienvenue sur le site Miaou')
                     ->html('<p>Bonjour, nous avons bien pris en compte votre inscription sur notre site !</p>');

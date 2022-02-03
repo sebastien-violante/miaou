@@ -23,7 +23,7 @@ class HeaderController extends AbstractController
     }
 
     /**
-     * @Route("/message", name="message")
+     * @Route("/contactus", name="contactus")
      */
     public function contactus(
         Request $request,
@@ -36,21 +36,17 @@ class HeaderController extends AbstractController
         $contactmail = $form->getData();
         $sender=$contactmail->getEmail();
         if ($form->isSubmitted() && $form->isValid()) {
-        $mail = (new Email())
+            $em->persist($message);
+            $em->flush();
+            $mail = (new Email())
             ->from($sender)
-
-
-
-           
-        
-                >from('miao@gmail.com')
-                ->to('miaou@gmail.com')
-                ->subject('Nouveau message')
-                ->html('<p>Bonjour, vous venez de recevoir un message de la part d\'un utilisateur de l\'application MIA...OU ? !</p>');
-                $mailer->send($mail);
+            ->to('miaou@gmail.com')
+            ->subject('Nouveau message')
+            ->html('<p>Bonjour, vous venez de recevoir un message de la part d\'un utilisateur de l\'application MIA...OU ? !</p>');
+            $mailer->send($mail);
             return $this->redirectToRoute('home');
         }
-        return $this->render('message/index.html.twig', [
+        return $this->render('contactus/index.html.twig', [
             'form' => $form->createView(),
         ]);
       

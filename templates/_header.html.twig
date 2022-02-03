@@ -8,8 +8,13 @@
             <a class="nav-link active" href="{{ path('cgu') }}">CGU</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link active" href="{{ path('message') }}">Contact</a>
+            <a class="nav-link active" href="{{ path('contactus') }}">Contact</a>
         </li>
+        {% if app.user and app.user.roles.0 in ['ROLE_ADMIN'] %}
+        <li class="nav-item">
+            <a class="nav-link active" href="{{ path('admin') }}">Administer</a>
+        </li>
+        {% endif %}
     </div>
     <div class="titre">
     <h1>MIA...OU ?</h1>

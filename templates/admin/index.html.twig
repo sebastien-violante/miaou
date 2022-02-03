@@ -5,12 +5,20 @@
     <h1>Bienvenue sur l'interface d'administration</h1>
     <br>
     <h2>Choisissez une catégorie</h2>
-    <br>
-    <div class="btn-group-vertical">
-        <button type="button" class="btn btn-primary">Gérer les communes</button>
+    <br><br>
+    <div class="btnadmin btn-group-vertical">
+        <div>
+        <a href="{{ path('commune_index') }}"><button type="button" class="btn btn-primary">Gérer les communes</button></a>
+        </div>
+        <div>
         <a href="{{ path('race_index') }}"><button type="button" class="btn btn-warning">Gérer les races</button></a>
-        <button type="button" class="btn btn-info">Gérer vos messages</button>
-        <button type="button" class="btn btn-secondary">Gérer les utilisateurs</button>
+        </div>
+        <div>
+        <a href="{{ path('message_index') }}"><button type="button" class="btn btn-info">Gérer vos messages</button></a>
+        </div>
+        <div>
+        <a href="{{ path('user_index') }}"><button type="button" class="btn btn-secondary">Gérer les utilisateurs</button></a>
+        </div>
     </div>
 </section> 
 {% endblock %}
