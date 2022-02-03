@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+{% block title %}Admin{% endblock %}
+{% block body %}
+<section class="admin">
+    <h1>Bienvenue sur l'interface d'administration</h1>
+    <br>
+    <h2>Choisissez une catégorie</h2>
+    <br>
+    <div class="btn-group-vertical">
+        <button type="button" class="btn btn-primary">Gérer les communes</button>
+        <a href="{{ path('race_index') }}"><button type="button" class="btn btn-warning">Gérer les races</button></a>
+        <button type="button" class="btn btn-info">Gérer vos messages</button>
+        <button type="button" class="btn btn-secondary">Gérer les utilisateurs</button>
+    </div>
+</section> 
+{% endblock %}

@@ -35,6 +35,7 @@ class RegistrationController extends AbstractController
             $email = $user->getEmail();
             if (is_string($plainPassword) && null !== $email) {
                 $user->setPassword($userPasswordHasher->hashPassword($user, $plainPassword));
+                $user->setRoles(['ROLE_ADMIN']);
                 $entityManager->persist($user);
                 $entityManager->flush();
                 $sendemail = (new Email())

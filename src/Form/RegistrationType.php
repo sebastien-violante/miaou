@@ -20,7 +20,6 @@ class RegistrationType extends AbstractType
     {
         $builder
             ->add('email', EmailType::class)
-            /* ->add('roles') */
             ->add('plainPassword', PasswordType::class, [
                 'mapped' => false,
                 'attr' => ['autocomplete' => 'new-password'],
