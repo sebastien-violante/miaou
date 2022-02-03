@@ -26,10 +26,15 @@ h3 {
 
 a {
     text-decoration: none;
+    font-size: 1.5em;;
 }
 
 p {
     text-align: center;
+}
+
+label {
+    font-size: 1.5em;
 }
 
 .form-control {
@@ -46,6 +51,11 @@ button {
     margin: 0 auto; 
     margin-top: 0.2em;
     font-size: 2em;
+}
+
+.btn {
+    font-size: 1em;
+
 }
 
 .card {
@@ -68,19 +78,3 @@ span {
     width: 100%;
     object-fit: cover;
 }
-
-
-/* @media () {
-
-    body {
-        align-items: center;
-    }
-
-    section {
-        margin-top: 20px;
-        width: 100%;
-        max-width: $width-max;
-        margin-bottom: 100px;
-    }
-} */
-

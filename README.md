@@ -79,18 +79,3 @@ To write...not ready yet !
 
 - Sébastien Violante
 
-Check to improve :
-(- crud admin at least on commune et race)
-(- user profil and granted)
-(- page 404)
-(- mailing avec variable d'environnement)
-(- mailing after plotting)
-(- several pop-ups)
-- check all routes
-(- modify crud titles) 
-- entity type for commune and race
-(- mauvais routage signaler en login)
-- checker bloc titles
-- afficher plottage du plus récent au plus ancien
-- augmenter taille police
-(- formulaire contact)

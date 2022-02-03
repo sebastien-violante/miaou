@@ -64,11 +64,10 @@ class PlotterController extends AbstractController
      */
     public function displayplot(int $id, ChatRepository $chatRepository, RechercheRepository $rechercheRepository): Response
     {
-        $plots = $rechercheRepository->findBy(['chat' => $id]); 
+        $plots = $rechercheRepository->findBy(['chat' => $id]);
         $chat = $chatRepository->findOneBy(['id' => $id]);
         $date = new \DateTime();
         $displaydate = $date->format('Y-m-d H:i:s');
-          
         return $this->render('plotter/display.html.twig', [
             'plots' => $plots, 
             'displaydate' => $displaydate,
