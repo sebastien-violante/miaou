@@ -3,6 +3,7 @@
 {% block title %}Edition messages{% endblock %}
 
 {% block body %}
+    <section class="crud">
     <h1>Edition de vos messages</h1>
 
     {{ include('message/_form.html.twig', {'button_label': 'Update'}) }}
@@ -10,4 +11,5 @@
     <a href="{{ path('message_index') }}">back to list</a>
 
     {{ include('message/_delete_form.html.twig') }}
+    </section>
 {% endblock %}

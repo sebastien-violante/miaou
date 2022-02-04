@@ -3,6 +3,7 @@
 {% block title %}Liste messages{% endblock %}
 
 {% block body %}
+    <section class="crud">
     <h1>Liste de vos messages</h1>
 
     <table class="table">
@@ -36,4 +37,5 @@
     </table>
 
     <a href="{{ path('message_new') }}">Create new</a>
+    </section>
 {% endblock %}
