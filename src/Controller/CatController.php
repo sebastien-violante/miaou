@@ -21,11 +21,11 @@ use Symfony\Component\HttpFoundation\File\Exception\FileException;
 class CatController extends AbstractController
 {
     /**
+     * This controller displays all the cats selected by user's email
      * @Route("/cat", name="cat")
      */
     public function index(ChatRepository $chatRepository): Response
     {
-        
         $mail = $this->getUser()->getEmail();
         $chats = $chatRepository->findBy(['email' => $mail]);
         return $this->render('cat/index.html.twig', [
@@ -34,14 +34,13 @@ class CatController extends AbstractController
     }
 
     /**
-     * Enregistrement d'un nouveau chat
+     * This controller allows to register a cat
      * @Route("/catregistration", name="catregistration")
      */
     public function catregistration(
         Request $request,
         EntityManagerInterface $em
-    ): Response
-    {
+    ): Response {
         $chat = new Chat();
         $form = $this->createForm(ChatType::class, $chat);
         $form->handleRequest($request);
@@ -49,9 +48,7 @@ class CatController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $chat->setEmail($mail);
-            // Persist Category Object
             $photo = $form->get('photo')->getData();
-
             // this condition is needed because the 'picuture' field is not required
             if ($photo instanceof UploadedFile && $chat instanceof Chat) {
                 $newFilename = 'avatar' . '-' . $chat->getNom() . '.' . $photo->guessExtension();
@@ -70,7 +67,6 @@ class CatController extends AbstractController
                 // instead of its contents
                 $chat->setPhoto($newFilename);
             }
-            
             $em->persist($chat);
             $em->flush();
             return $this->redirectToRoute('home');
@@ -81,6 +77,7 @@ class CatController extends AbstractController
     } 
     
     /**
+     * THis controller is used to declare a cat as lost
      * @Route("/lost/{id}", name="lostbyid")
      */
     public function islost(ChatRepository $chatRepository, EntityManagerInterface $em, int $id): Response
@@ -96,6 +93,7 @@ class CatController extends AbstractController
     }
 
     /**
+     * This controller is used to declare a cat as recovered
      * @Route("/found/{id}", name="foundbyid")
      */
     public function isfound(

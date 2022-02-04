@@ -3,11 +3,11 @@
 {% block title %}Dashboard{% endblock %}
 
 {% block body %}
-
-<h2>Tableau de bord</h2>
+<section class="crud">
+<h1>Tableau de bord</h1>
 <br>
-<h3>Voici le recapitulatif des plottages concernant {{ chat.nom }}</h3>
-<h3>à la date du : {{ displaydate }}</h3>
+<h2>Voici le recapitulatif des plottages concernant {{ chat.nom }}</h2>
+<h2>à la date du : {{ displaydate }}</h2>
 <br>
 <table class="table table-hover">
     <thead>
@@ -29,4 +29,5 @@
     </tbody>
     {% endfor %}
 </table>
+</section>
 {% endblock %}
