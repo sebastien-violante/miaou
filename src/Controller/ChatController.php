@@ -12,6 +12,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
+ * This class is dedicated to cats CRUD
  * @Route("/chat")
  */
 class ChatController extends AbstractController
@@ -34,7 +35,7 @@ class ChatController extends AbstractController
         $chat = new Chat();
         $form = $this->createForm(Chat1Type::class, $chat);
         $form->handleRequest($request);
-
+        
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->persist($chat);
             $entityManager->flush();
@@ -65,7 +66,7 @@ class ChatController extends AbstractController
     {
         $form = $this->createForm(Chat1Type::class, $chat);
         $form->handleRequest($request);
-
+        
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->flush();
 

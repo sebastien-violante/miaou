@@ -3,47 +3,45 @@
 {% block title %}Chat index{% endblock %}
 
 {% block body %}
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nom</th>
+            <th>Race</th>
+            <th>Photo</th>
+            <th>Signe</th>
+            <th>Islost</th>
+            <th>Commune</th>
+            <th>Email</th>
+            <th>Datelost</th>
+            <th>actions</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for chat in chats %}
+        <tr>
+            <td>{{ chat.id }}</td>
+            <td>{{ chat.nom }}</td>
+            <td>{{ chat.race }}</td>
+            <td>{{ chat.photo }}</td>
+            <td>{{ chat.signe }}</td>
+            <td>{{ chat.islost ? 'Yes' : 'No' }}</td>
+            <td>{{ chat.commune }}</td>
+            <td>{{ chat.email }}</td>
+            <td>{{ chat.datelost ? chat.datelost|date('Y-m-d H:i:s') : '' }}</td>
+            <td>
+                <a href="{{ path('chat_show', {'id': chat.id}) }}">show</a>
+                <a href="{{ path('chat_edit', {'id': chat.id}) }}">edit</a>
+            </td>
+        </tr>
+    {% else %}
+    <tr>
+        <td colspan="10">no records found</td>
+    </tr>
+    {% endfor %}
     <h1>Chat index</h1>
-
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Nom</th>
-                <th>Race</th>
-                <th>Photo</th>
-                <th>Signe</th>
-                <th>Islost</th>
-                <th>Commune</th>
-                <th>Email</th>
-                <th>Datelost</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for chat in chats %}
-            <tr>
-                <td>{{ chat.id }}</td>
-                <td>{{ chat.nom }}</td>
-                <td>{{ chat.race }}</td>
-                <td>{{ chat.photo }}</td>
-                <td>{{ chat.signe }}</td>
-                <td>{{ chat.islost ? 'Yes' : 'No' }}</td>
-                <td>{{ chat.commune }}</td>
-                <td>{{ chat.email }}</td>
-                <td>{{ chat.datelost ? chat.datelost|date('Y-m-d H:i:s') : '' }}</td>
-                <td>
-                    <a href="{{ path('chat_show', {'id': chat.id}) }}">show</a>
-                    <a href="{{ path('chat_edit', {'id': chat.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="10">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
+        <table class="table">
+            </tbody>
+        </table>
     <a href="{{ path('chat_new') }}">Create new</a>
 {% endblock %}

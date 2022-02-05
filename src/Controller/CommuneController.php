@@ -13,6 +13,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 /**
+ * This class is dedicated to Communes CRUD and granted to admin only
  * @Route("/commune")
  * @IsGranted("ROLE_ADMIN")
  */

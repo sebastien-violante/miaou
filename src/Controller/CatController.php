@@ -34,7 +34,7 @@ class CatController extends AbstractController
     }
 
     /**
-     * This controller allows to register a cat
+     * This controller allows to register a new cat
      * @Route("/catregistration", name="catregistration")
      */
     public function catregistration(
@@ -49,10 +49,8 @@ class CatController extends AbstractController
             $em = $this->getDoctrine()->getManager();
             $chat->setEmail($mail);
             $photo = $form->get('photo')->getData();
-            // this condition is needed because the 'picuture' field is not required
             if ($photo instanceof UploadedFile && $chat instanceof Chat) {
                 $newFilename = 'avatar' . '-' . $chat->getNom() . '.' . $photo->guessExtension();
-                // Move the file to the directory where brochures are stored
                 if (is_string($this->getParameter('pictures_directory'))) {
                     try {
                         $photo->move(
@@ -60,11 +58,9 @@ class CatController extends AbstractController
                             $newFilename
                         );
                     } catch (FileException $e) {
-                        // ... handle exception if something happens during file upload
                         return $this->render('errors/error500.html.twig');
                     }
                 }
-                // instead of its contents
                 $chat->setPhoto($newFilename);
             }
             $em->persist($chat);
@@ -77,7 +73,7 @@ class CatController extends AbstractController
     } 
     
     /**
-     * THis controller is used to declare a cat as lost
+     * THis controller is used to declare a cat as lost usign its id
      * @Route("/lost/{id}", name="lostbyid")
      */
     public function islost(ChatRepository $chatRepository, EntityManagerInterface $em, int $id): Response
@@ -93,7 +89,7 @@ class CatController extends AbstractController
     }
 
     /**
-     * This controller is used to declare a cat as recovered
+     * This controller is used to declare a cat as recovered with a research by cat id
      * @Route("/found/{id}", name="foundbyid")
      */
     public function isfound(

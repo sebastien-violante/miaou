@@ -10,7 +10,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 class AdminController extends AbstractController
 {
     /**
-     * This controller redirects to the administration homepage
+     * This controller just redirects to the administration homepage
      * @Route("/admin", name="admin")
      * @IsGranted("ROLE_ADMIN")
      */

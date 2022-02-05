@@ -3,34 +3,29 @@
 {% block title %}Hello MessageController!{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
-
-<div class="example-wrapper">
-<section class="contactus">
-    <h1>Bienvenue sur l'interface de messagerie</h1>
-    <hr>
-      {{ form_start(form) }}
-       
-        {{ form_label(form.pseudo, 'Pseudo', {'pseudo': {'class': 'form-label'}}) }}
-        <br>
-        {{ form_widget(form.pseudo, {'pseudo': {'class': 'form-control'}}) }}
-        <br>  
-        {{ form_label(form.email, 'Email', {'email': {'class': 'form-label'}}) }}
-        <br>
-        {{ form_widget(form.email, {'email': {'class': 'form-control'}}) }}     
-        <br>
-        {{ form_label(form.message, 'Votre message...', {'message': {'class': 'form-label'}}) }}
-        <br>
-        {{ form_widget(form.message, {'message': {'class': 'form-control'}}) }}
-        <br>
-       
-        <br><br>
-        <input type="submit"  value="Envoyer..." class="btn btn-success">
-        
-    {{ form_end(form) }}
-</div>
-</section>
+    <style>
+        .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+        .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    </style>
+    <section class="example-wrapper">
+        <div class="contactus">
+            <h1>Bienvenue sur l'interface de messagerie</h1>
+            <hr>
+            {{ form_start(form) }}
+                {{ form_label(form.pseudo, 'Pseudo', {'pseudo': {'class': 'form-label'}}) }}
+                <br>
+                {{ form_widget(form.pseudo, {'pseudo': {'class': 'form-control'}}) }}
+                <br>  
+                {{ form_label(form.email, 'Email', {'email': {'class': 'form-label'}}) }}
+                <br>
+                {{ form_widget(form.email, {'email': {'class': 'form-control'}}) }}     
+                <br>
+                {{ form_label(form.message, 'Votre message...', {'message': {'class': 'form-label'}}) }}
+                <br>
+                {{ form_widget(form.message, {'message': {'class': 'form-control'}}) }}
+                <br><br><br>
+                <input type="submit"  value="Envoyer..." class="btn btn-success">
+            {{ form_end(form) }}
+        </div>
+    </section>
 {% endblock %}

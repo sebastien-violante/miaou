@@ -3,33 +3,31 @@
 {% block title %}Miaou Accueil{% endblock %}
 
 {% block body %}
-<section class="homepage">
-      <h1>Bonjour 
-    {% if (app.user) %}
-    {{ app.user.pseudo }} 
-    {% endif %} et bienvenue sur Mia...ou ?</h1><br>
-   
-    <div class="home">
-        <div class="image">
-            <img src="{{ asset('build/images/cathome.jpg') }}" alt="cat home">
+    <section class="homepage">
+        <h1>Bonjour 
+        {% if (app.user) %}
+            {{ app.user.pseudo }} 
+        {% endif %} et bienvenue sur Mia...ou ?</h1><br>
+        <div class="home">
+            <div class="image">
+                <img src="{{ asset('build/images/cathome.jpg') }}" alt="cat home">
+            </div>
+        <div class="buttons">
+            {% if (app.user is empty) %}
+                <a href="{{ path('login') }}"><button type="button" class="btn btn-success">Se connecter</button></a><br>
+                <a href="{{ path('search') }}"><button type="button" class="btn btn-warning" onclick="return confirm('Attention, vous vous apprétez à signaler un chat. Tout signalement abusif peut mener à une plainte à votre encontre');">Signaler</button><br></a>
+            {% else %}
+                <a href="{{ path('app_logout') }}"><button type="button" class="btn btn-primary">Se déconnecter</button><br>
+                <a href="{{ path('cat') }}"><button type="button" class="btn btn-info">Mes chats</button><br>
+            {% endif %}
+            {% if (app.user is empty) %}
+                <a href="{{ path('registration') }}"><p>Pas encore de compte ? Cliquez ici ...</p></a>
+            {% endif %}
         </div>
-    <div class="buttons">
         {% if (app.user is empty) %}
-        <a href="{{ path('login') }}"><button type="button" class="btn btn-success">Se connecter</button></a><br>
-        <a href="{{ path('search') }}"><button type="button" class="btn btn-warning" onclick="return confirm('Attention, vous vous apprétez à signaler un chat. Tout signalement abusif peut mener à une plainte à votre encontre');">Signaler</button><br></a>
-        {% else %}
-        <a href="{{ path('app_logout') }}"><button type="button" class="btn btn-primary">Se déconnecter</button><br>
-        <a href="{{ path('cat') }}"><button type="button" class="btn btn-info">Mes chats</button><br>
+        <div class="contexte alert alert-dismissible alert-secondary">
+            <h2>Si vous venez de perdre votre chat, <b>pas de panique !</b> il vous suffit de vous enregistrer/connecter et de le signaler perdu. Une "Cat Patrouille" pourra le repérer et vous serez <b>averti en temps réel</b> de sa localisation...<h2>
+        </div>
         {% endif %}
-        {# <a href="{{ path('search') }}"><button type="button" class="btn btn-warning" onclick="return confirm('Attention, vous vous apprétez à signaler un chat. Tout signalement abusif peut mener à une plainte à votre encontre');">Signaler</button><br></a> #}
-        {% if (app.user is empty) %}
-        <a href="{{ path('registration') }}"><p>Pas encore de compte ? Cliquez ici ...</p></a>
-         {% endif %}
-    </div>
-    {% if (app.user is empty) %}
-    <div class="contexte alert alert-dismissible alert-secondary">
-        <h2>Si vous venez de perdre votre chat, <b>pas de panique !</b> il vous suffit de vous enregistrer/connecter et de le signaler perdu. Une "Cat Patrouille" pourra le repérer et vous serez <b>averti en temps réel</b> de sa localisation...<h2>
-    </div>
-     {% endif %}
-</section>
+    </section>
 {% endblock %}

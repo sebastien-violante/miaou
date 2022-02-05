@@ -4,38 +4,36 @@
 
 {% block body %}
     <section class="crud">
-    <h1>Liste de vos messages</h1>
-
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Pseudo</th>
-                <th>Message</th>
-                <th>Email</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for message in messages %}
-            <tr>
-                <td>{{ message.id }}</td>
-                <td>{{ message.pseudo }}</td>
-                <td>{{ message.message }}</td>
-                <td>{{ message.email }}</td>
-                <td>
-                    <a href="{{ path('message_show', {'id': message.id}) }}">show</a>
-                    <a href="{{ path('message_edit', {'id': message.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="5">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <a href="{{ path('message_new') }}">Create new</a>
+        <h1>Liste de vos messages</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Pseudo</th>
+                    <th>Message</th>
+                    <th>Email</th>
+                    <th>actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for message in messages %}
+                <tr>
+                    <td>{{ message.id }}</td>
+                    <td>{{ message.pseudo }}</td>
+                    <td>{{ message.message }}</td>
+                    <td>{{ message.email }}</td>
+                    <td>
+                        <a href="{{ path('message_show', {'id': message.id}) }}">show</a>
+                        <a href="{{ path('message_edit', {'id': message.id}) }}">edit</a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="5">no records found</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <a href="{{ path('message_new') }}">Create new</a>
     </section>
 {% endblock %}

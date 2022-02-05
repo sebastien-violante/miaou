@@ -3,28 +3,27 @@
 {% block title %}Hello LoginController!{% endblock %}
 
 {% block body %}
-<section class="login">
-    <h1>Connexion</h1>
-    {% if error %}
-    <div>{{ error.messageKey }}</div>
-    {% endif %}
-    <form action="{{ path('login') }}" method="post">
-        <div class="mb-3">
-            <label for="username" class="form-label">Email :</label>
-            <input type="text" class="form-control" id="username" name="_username" value="{{ last_username }}"
-                aria-describedby="emailHelp">
-        </div>
-        <div class="mb-3">
-            <label for="password" class="form-label">Mot de passe :</label>
-            <input type="password" class="form-control" id="password" name="_password">
-        </div>
-        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
-        <div class="succes">
-        <button type="submit" class="btn btn-success">Connexion</button>
-        </div>
-    </form>
-    <hr>
-    <a href="{{ path('registration') }}">Pas encore de compte ? Cliquez ici ...</a>
-</section>
-
+    <section class="login">
+        <h1>Connexion</h1>
+        {% if error %}
+            <div>{{ error.messageKey }}</div>
+        {% endif %}
+        <form action="{{ path('login') }}" method="post">
+            <div class="mb-3">
+                <label for="username" class="form-label">Email :</label>
+                <input type="text" class="form-control" id="username" name="_username" value="{{ last_username }}"
+                    aria-describedby="emailHelp">
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Mot de passe :</label>
+                <input type="password" class="form-control" id="password" name="_password">
+            </div>
+            <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+            <div class="succes">
+                <button type="submit" class="btn btn-success">Connexion</button>
+            </div>
+        </form>
+        <hr>
+        <a href="{{ path('registration') }}">Pas encore de compte ? Cliquez ici ...</a>
+    </section>
 {% endblock %}

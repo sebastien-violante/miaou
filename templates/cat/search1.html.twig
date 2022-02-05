@@ -3,20 +3,18 @@
 {% block title %}Chat perdu{% endblock %}
 
 {% block body %}
-
-<div class="example-wrapper">
-    <h2>Bienvenue dans la Cat Patrouille !</h2>
-    <br>
-    <p>Indiquez dans quelle commune vous cherchez un chat perdu...</p>
-</div>
-<form action="{{ path('search') }}" method="post" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer ce commentaire ?">
+    <div class="example-wrapper">
+        <h2>Bienvenue dans la Cat Patrouille !</h2>
+        <br>
+        <p>Indiquez dans quelle commune vous cherchez un chat perdu...</p>
+    </div>
+    <form action="{{ path('search') }}" method="post" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer ce commentaire ?">
         <div class="mb-3">
             <label for="commune" class="form-label">Commune :</label>
             <br>
             <input type="text" class="form-control" id="commune" name="commune">
-        </div>
-        <br>
-        <button type="submit" class="btn btn-outline-success rounded-pill">Validez...</button>
+    </div>
+    <br>
+    <button type="submit" class="btn btn-outline-success rounded-pill">Validez...</button>
     </form>
-
 {% endblock %}

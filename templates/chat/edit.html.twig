@@ -4,10 +4,7 @@
 
 {% block body %}
     <h1>Edit Chat</h1>
-
     {{ include('chat/_form.html.twig', {'button_label': 'Update'}) }}
-
     <a href="{{ path('chat_index') }}">back to list</a>
-
     {{ include('chat/_delete_form.html.twig') }}
 {% endblock %}

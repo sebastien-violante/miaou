@@ -4,12 +4,9 @@
 
 {% block body %}
     <section class="crud">
-    <h1>Editions des Races</h1>
-
-    {{ include('race/_form.html.twig', {'button_label': 'Update'}) }}
-
-    <a href="{{ path('race_index') }}">back to list</a>
-
-    {{ include('race/_delete_form.html.twig') }}
+        <h1>Editions des Races</h1>
+        {{ include('race/_form.html.twig', {'button_label': 'Update'}) }}
+        <a href="{{ path('race_index') }}">back to list</a>
+        {{ include('race/_delete_form.html.twig') }}
     </section>
 {% endblock %}

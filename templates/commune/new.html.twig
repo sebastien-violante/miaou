@@ -4,10 +4,8 @@
 
 {% block body %}
     <section class="crud">
-    <h1>Ajouter une nouvelle commune</h1>
-
-    {{ include('commune/_form.html.twig') }}
-
-    <a href="{{ path('commune_index') }}">back to list</a>
+        <h1>Ajouter une nouvelle commune</h1>
+        {{ include('commune/_form.html.twig') }}
+        <a href="{{ path('commune_index') }}">back to list</a>
     </section>
 {% endblock %}

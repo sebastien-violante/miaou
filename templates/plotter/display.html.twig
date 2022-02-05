@@ -3,31 +3,31 @@
 {% block title %}Dashboard{% endblock %}
 
 {% block body %}
-<section class="crud">
-<h1>Tableau de bord</h1>
-<br>
-<h2>Voici le recapitulatif des plottages concernant {{ chat.nom }}</h2>
-<h2>à la date du : {{ displaydate }}</h2>
-<br>
-<table class="table table-hover">
-    <thead>
-        <tr>
-        <th scope="col">Date</th>
-        <th scope="col">Longitude</th>
-        <th scope="col">Latitude</th>
-        <th scope="col">Coordonnées du contact</th>
-        </tr>
-    </thead>
-    {% for plot in plots %}
-    <tbody>
-        <tr class="table-warning">
-        <th scope="row">{{ plot.date|date('Y-m-d') }}</th>
-        <td>{{ plot.coordx }}</td>
-        <td>{{ plot.coordy }}</td>
-        <td>{{ plot.contact }}</td>
-        </tr>
-    </tbody>
-    {% endfor %}
-</table>
-</section>
+    <section class="crud">
+        <h1>Tableau de bord</h1>
+        <br>
+        <h2>Voici le recapitulatif des plottages concernant {{ chat.nom }}</h2>
+        <h2>à la date du : {{ displaydate }}</h2>
+        <br>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                <th scope="col">Date</th>
+                <th scope="col">Longitude</th>
+                <th scope="col">Latitude</th>
+                <th scope="col">Coordonnées du contact</th>
+                </tr>
+            </thead>
+            {% for plot in plots %}
+                <tbody>
+                    <tr class="table-warning">
+                    <th scope="row">{{ plot.date|date('d-m-Y') }}</th>
+                    <td>{{ plot.coordx }}</td>
+                    <td>{{ plot.coordy }}</td>
+                    <td>{{ plot.contact }}</td>
+                    </tr>
+                </tbody>
+            {% endfor %}
+        </table>
+    </section>
 {% endblock %}

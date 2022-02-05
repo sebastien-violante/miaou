@@ -3,25 +3,22 @@
 {% block title %}Chat perdu{% endblock %}
 
 {% block body %}
-<section class="searchindex">
-<div class="example-wrapper">
-   
-    <h1>Bienvenue en mode</h1>
-    <h1>"Cat Patrouille" !</h1>
-    <br>
-    <h2>Indiquez dans quelle commune vous cherchez un chat perdu...</h2>
-    <br>
-</div>
-<div class="contexte alert alert-dismissible alert-secondary">
-
-{{ form_start(form) }}
-  
-{{ form_label(form.commune, 'Commune', {'commune': {'class': 'form-label'}}) }}
-<br>
-{{ form_widget(form.commune, {'commune': {'class': 'form-control'}}) }}
-<br>
-<input type="submit"  value="Rechercher..." class="btn btn-warning">
-{{ form_end(form) }}
-</div>
-</section>
+    <section class="searchindex">
+        <div class="example-wrapper">
+            <h1>Bienvenue en mode</h1>
+            <h1>"Cat Patrouille" !</h1>
+            <br>
+            <h2>Indiquez dans quelle commune vous cherchez un chat perdu...</h2>
+            <br>
+        </div>
+        <div class="contexte alert alert-dismissible alert-secondary">
+        {{ form_start(form) }}
+        {{ form_label(form.commune, 'Commune', {'commune': {'class': 'form-label'}}) }}
+        <br>
+        {{ form_widget(form.commune, {'commune': {'class': 'form-control'}}) }}
+        <br>
+        <input type="submit"  value="Rechercher..." class="btn btn-warning">
+        {{ form_end(form) }}
+        </div>
+    </section>
 {% endblock %}
